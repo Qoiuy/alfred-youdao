@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test_default_eng_str" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="alfred-youdao" />
+    <working_directory value="$PROJECT_DIR$" />
+    <parameters value="yd These variables are used by the register assignment algorithm in this file. They should be modified with care (no other reflect code may be executing) and are generally only modified when testing this package. They should never be set higher than their internal/abi constant counterparts, because the system relies on a structure that is at least large enough to hold the registers the system supports. Currently they're set to zero because using the actual constants will break every part of the toolchain that uses reflect to call functions (e.g. go test, or anything that uses text/template). The values that are currently commented out there should be the actual values once we're ready to use the register ABI everywhere." />
+    <envs>
+      <env name="zhiyun_id" value="" />
+      <env name="zhiyun_key" value="" />
+    </envs>
+    <kind value="PACKAGE" />
+    <package value="example.com/mod" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/main.go" />
+    <method v="2" />
+  </configuration>
+</component>

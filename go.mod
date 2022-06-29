@@ -1,4 +1,4 @@
-module example.com/mod
+module alfred-youdao/alfred-youdao
 
 go 1.17
 
