@@ -23,6 +23,8 @@ func init() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 }
 
+const golangCodeComment = "//" // go代码注释关键字 替换使用
+
 func main() {
 	log.Println(os.Args)
 
@@ -45,7 +47,7 @@ func main() {
 		AppSecret: appKey,
 	}
 	agent := newAgent(client)
-	q, from, to, lang := parseArgs(os.Args)
+	q, from, to, lang,isGolangComment := parseArgs(os.Args)
 
 	if lang {
 		if err := agent.Client.SetFrom(from); err != nil {
@@ -75,7 +77,8 @@ func main() {
 		items.End()
 	}
 
-	if len(q) > 255 {
+	// 普通的小查询限制字符数 golang注释翻译不限制
+	if !isGolangComment && len(q) > 255 {
 		items.Append(&alfred.ResultElement{
 			Valid:    false,
 			Title:    "错误: 最大查询字符数为255",

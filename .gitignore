@@ -3,3 +3,4 @@ alfred-youdao
 cache.dat
 alfred/update_cmd/update_cmd
 .DS_Store
+.idea/

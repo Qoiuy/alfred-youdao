@@ -50,10 +50,20 @@ var (
 
 // 解析传入进来的参数
 // 返回值是 查询字符串，源语言，目标语言，是否设置语言
-func parseArgs(args []string) (q string, from string, to string, lang bool) {
+func parseArgs(args []string) (q string, from string, to string, lang bool, isGolangComment bool) {
 	if len(args) < 2 {
 		return
 	}
+	isGolangComment = false
+
+	// 如果时golang代码注释 单独处理, 默认时yd golang注释翻译叫gcd
+	if args[1] == "gcd" {
+		str := strings.TrimSpace(strings.Join(args[2:], " "))
+		q = strings.ReplaceAll(str, "//", "")
+		isGolangComment = true
+		return
+	}
+
 	if v := langPattern.FindAllStringSubmatch(strings.TrimSpace(args[1]), -1); len(v) > 0 {
 		lang = true
 		from = v[0][1]

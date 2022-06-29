@@ -1,0 +1,6 @@
+github.com/patrickmn/go-cache v2.1.0+incompatible h1:HRMgzkcYKYpi3C8ajMPV8OFXaaRUnok+kx1WdO15EQc=
+github.com/patrickmn/go-cache v2.1.0+incompatible/go.mod h1:3Qf8kWWT7OJRJbdiICTKqZju1ZixQ/KpMGzzAfe6+WQ=
+github.com/zgs225/alfred-youdao v1.5.2 h1:j/ajGwdEai8dFN3cteID4noiNsKx0ETzS3BcVKpsgnY=
+github.com/zgs225/alfred-youdao v1.5.2/go.mod h1:ACMHz5v4I6m+/5Q7s8N3ePsi3pmzPZfNq7QQx4jrKAo=
+github.com/zgs225/youdao v1.0.0 h1:gxe351UEzbH6kwYjAr+4uhE5E7o8EE9A/iXyap/IYwI=
+github.com/zgs225/youdao v1.0.0/go.mod h1:7AaoXu+UWEr27KVzbHUZ62ijydPXxL6pX/wIRMO2viA=
