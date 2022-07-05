@@ -193,7 +193,7 @@ func newLine(translation string, newLineLimit int) string {
 	return strings.Join(res, "\n")
 }
 
-const newLineLimit int = 50
+const newLineLimit int = 100
 
 // merge 选取字符串数组里面 start开始的字符串 进行合并
 // 长度不超过newLineLimit限制
@@ -215,6 +215,6 @@ func merge(periods *[]string, start int, newLineLimit int) (int, string) {
 		wordCount++
 	}
 
-	return wordCount, strings.Join((*periods)[start:start+wordCount], " ")
+	return wordCount, "// " + strings.Join((*periods)[start:start+wordCount], " ")
 
 }
