@@ -111,3 +111,5 @@ Youdao Dict for Alfred.
 
 本机电脑执行
 cd ~/workspace/alfred-youdao && rm alfred-youdao && go build  && cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/alfred/config\ /Alfred.alfredpreferences/workflows/user.workflow.E0E7B535-2B99-449F-AC80-9118CA79A96A/  && mv ~/workspace/alfred-youdao/alfred-youdao .
+
+zhiyun_id=xxx zhiyun_key=xxx ./alfred-youdao gcd 今天
