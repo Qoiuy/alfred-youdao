@@ -190,7 +190,7 @@ func newLine(translation string, newLineLimit int) string {
 		res = append(res, mergeString)
 		i = i + mergeNum
 	}
-	return strings.Join(periods, "\n")
+	return strings.Join(res, "\n")
 }
 
 const newLineLimit int = 50
