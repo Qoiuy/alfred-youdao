@@ -2,11 +2,10 @@
 
 go build -o alfred-youdao
 
+测试
+./alfred-youdao gcd apple
 
 vimrc 文件配置
 
-" 翻译向下n行 并且将翻译结果放在 寄存器 a中
-nnoremap <expr> yy ':<C-U>call RunYoudao(' . v:count . ')<CR>' . v:count . 'jo<Esc>'
-
+" 无冲突的情况下 有冲突以用户键位为准
 let mapleader=";"
-nmap <Leader>y "ap

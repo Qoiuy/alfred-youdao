@@ -34,3 +34,6 @@
   :call setreg("a", a:msg)
 
 :endfunction
+
+nnoremap <expr> yy ':<C-U>call RunYoudao(' . v:count . ')<CR>' . v:count . 'jo<Esc>'
+nmap <Leader>y "ap
