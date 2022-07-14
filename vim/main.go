@@ -60,14 +60,10 @@ func main() {
 		panic(err)
 	}
 
-	// 针对返回的数据做处理 t.Translation
-	for i, translation := range *r.Translation {
-		(*r.Translation)[i] = newLine(translation, newLineLimit)
-	}
-
+	// 针对返回的数据做处理
 	if r.Translation != nil {
 		// 只展示第一个翻译结果
-		(Str)((*r.Translation)[0]).End()
+		(Str)(newLine((*r.Translation)[0], newLineLimit)).End()
 	}
 
 }
@@ -79,8 +75,35 @@ func (r Str) End() {
 	if err := json.NewEncoder(b).Encode(r); err != nil {
 		panic(err)
 	}
-	fmt.Print(b.String())
+	fmt.Print(deleteQuotes(b.String()))
 	os.Exit(0)
+}
+
+// deleteQuotes 删除开头和末尾引号
+func deleteQuotes(rStr string) string {
+
+	// 没有处理的必要
+	if len(rStr) <= 2 {
+		return rStr
+	}
+
+	start := 0
+	if strings.HasPrefix(rStr, "\"") {
+		start = start + 1
+	}
+
+	// 以 "\n 结尾处理
+	if strings.HasSuffix(rStr, "\"\n") {
+		return rStr[start : len(rStr)-2]
+	}
+
+	// 以 " 结尾处理
+	if strings.HasSuffix(rStr, "\"") {
+		return rStr[start : len(rStr)-1]
+	}
+
+	return rStr[start:]
+
 }
 
 // newLine 针对 string 进行换行
