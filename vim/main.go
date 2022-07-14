@@ -121,6 +121,12 @@ func newLine(translation string, newLineLimit int) string {
 		res = append(res, mergeString)
 		i = i + mergeNum
 	}
+	// 这里的msg 换行需要处理一下的 因为vim里面的Tab键和换行符并不是\t \n
+	// 详细的 在 vim
+	//		:%!xxd  查看文件十六进制
+	// 		set list 查看不可见字符
+	//		:help digraph-tablk  => 0x09 和0x0a
+
 	return strings.Join(res, "\n")
 }
 
