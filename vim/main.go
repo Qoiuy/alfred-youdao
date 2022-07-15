@@ -126,8 +126,12 @@ func newLine(translation string, newLineLimit int) string {
 	//		:%!xxd  查看文件十六进制
 	// 		set list 查看不可见字符
 	//		:help digraph-tablk  => 0x09 和0x0a
-
-	return strings.Join(res, "\n")
+	NL := 10
+	TAB := 9
+	s := strings.Join(res, "	"+string(NL)+string(TAB))
+	sbyte := []byte(s)
+	fmt.Printf("\n%+v%+v\n", s, sbyte)
+	return s
 }
 
 const newLineLimit int = 50
