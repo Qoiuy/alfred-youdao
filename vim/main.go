@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -11,20 +9,10 @@ import (
 	"github.com/zgs225/youdao"
 )
 
-const (
-	APPID     = ""
-	APPSECRET = ""
-	MAX_LEN   = 255
-
-	UPDATECMD = "alfred-youdao:update"
-)
-
 func init() {
 	log.SetPrefix("[i] ")
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 }
-
-const golangCodeComment = "//" // go代码注释关键字 替换使用
 
 func main() {
 
@@ -71,39 +59,8 @@ func main() {
 type Str string
 
 func (r Str) End() {
-	b := new(bytes.Buffer)
-	if err := json.NewEncoder(b).Encode(r); err != nil {
-		panic(err)
-	}
-	fmt.Print(deleteQuotes(b.String()))
+	fmt.Print(r)
 	os.Exit(0)
-}
-
-// deleteQuotes 删除开头和末尾引号
-func deleteQuotes(rStr string) string {
-
-	// 没有处理的必要
-	if len(rStr) <= 2 {
-		return rStr
-	}
-
-	start := 0
-	if strings.HasPrefix(rStr, "\"") {
-		start = start + 1
-	}
-
-	// 以 "\n 结尾处理
-	if strings.HasSuffix(rStr, "\"\n") {
-		return rStr[start : len(rStr)-2]
-	}
-
-	// 以 " 结尾处理
-	if strings.HasSuffix(rStr, "\"") {
-		return rStr[start : len(rStr)-1]
-	}
-
-	return rStr[start:]
-
 }
 
 // newLine 针对 string 进行换行
@@ -127,10 +84,7 @@ func newLine(translation string, newLineLimit int) string {
 	// 		set list 查看不可见字符
 	//		:help digraph-tablk  => 0x09 和0x0a
 	NL := 10
-	TAB := 9
-	s := strings.Join(res, "	"+string(NL)+string(TAB))
-	sbyte := []byte(s)
-	fmt.Printf("\n%+v%+v\n", s, sbyte)
+	s := strings.Join(res, string(NL))
 	return s
 }
 
