@@ -10,11 +10,9 @@
 
 	" 取当前行向下n行 的内容
 	:let s:curr_line = line(".")
-	":let a:n_line = 1
-	:let s:body = getline(s:curr_line, s:curr_line+a:n_line)
+	:let s:body = getline(s:curr_line, s:curr_line+a:n_line)  	"想测试的话  可以使用 :let a:n_line = 1
 
-	" 将取到的数据拼成一个 youdao 翻译的shell
-	:let s:cmd = printf("%s", ydShell)
+	:let s:cmd = printf("%s", ydShell)  " 将取到的数据拼成一个 youdao 翻译的shell
 	:for s:line in s:body
 		:let s:cmd = printf("%s %s ", s:cmd, s:line)
     :endfor
