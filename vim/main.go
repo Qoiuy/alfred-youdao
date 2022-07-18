@@ -65,6 +65,12 @@ func (r Str) End() {
 
 // newLine 针对 string 进行换行
 func newLine(translation string, newLineLimit int) string {
+
+	// 删除翻译结尾的"。" 避免后续做多余的处理
+	if strings.HasSuffix(translation, "。") {
+		translation = translation[:len(translation)-3]
+	}
+
 	periods := strings.Split(translation, "。")
 	res := make([]string, 0)
 	for i := 0; i < len(periods); {
