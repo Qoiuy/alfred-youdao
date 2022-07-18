@@ -22,6 +22,8 @@
         let line = substitute(line, "'", "‘", "g") "  解决 包含'的文本无法翻译的问题
         let line = substitute(line, '"', '‘', 'g') "  解决 包含'的文本无法翻译的问题
         let line = substitute(line, ';', ' ', 'g') "  解决 包含;的文本无法翻译的问题
+        let line = substitute(line, '<', ' ', 'g') "  解决 包含<的文本无法翻译的问题
+        let line = substitute(line, '>', ' ', 'g') "  解决 包含>的文本无法翻译的问题
 
 		:let s:cmd = printf("%s %s ", s:cmd, line)
     :endfor
