@@ -14,7 +14,12 @@
 
 	:let s:cmd = printf("%s", ydShell)  " 将取到的数据拼成一个 youdao 翻译的shell
 	:for s:line in s:body
-		:let s:cmd = printf("%s %s ", s:cmd, s:line)
+
+	    let line = s:line  " 解决 包含(的文本无法翻译的问题
+	    let line = substitute(line, '(', '（', 'g')
+        let line = substitute(line, ')', '）', 'g')
+
+		:let s:cmd = printf("%s %s ", s:cmd, line)
     :endfor
 	":echomsg s:cmd
 
